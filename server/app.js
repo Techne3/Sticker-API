@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const path = require("path");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
@@ -17,6 +18,10 @@ app.use(cookieParser());
 
 app.use("/api/v1/stickers", stickers);
 
+const port = process.env.PORT || 5004;
+app.listen(port, () => {
+  console.log(`server is up on ${port}!`);
+});
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   const err = new Error("Not Found");

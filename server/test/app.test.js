@@ -3,6 +3,7 @@ const expect = require("chai").expect;
 const request = require("supertest");
 const app = require("../app");
 const fixtures = require("./fixtures");
+// const request = require("supertest").agent(app.listen());
 
 describe("CRUD Stickers", () => {
   before((done) => {
@@ -16,7 +17,7 @@ describe("CRUD Stickers", () => {
       .then(() => done());
   });
   it("List all records", (done) => {
-    request(app)
+    request(app.listen())
       .get("/api/v1/stickers")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
