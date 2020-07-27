@@ -5,4 +5,8 @@ module.exports = {
     client: "pg",
     connection: "postgres://localhost/ts-wb-store",
   },
+  test: {
+    client: "pg",
+    connection: "postgres://localhost/test-ts-wb-store",
+  },
 };
